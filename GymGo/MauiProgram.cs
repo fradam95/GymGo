@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using GymGo.Pages.WorkoutSession;
+using GymGo.Pages.PreviousWorkout;
+using GymGo.Pages.Tabata;
+using Microsoft.Extensions.Logging;
 
 namespace GymGo
 {
@@ -15,8 +18,12 @@ namespace GymGo
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<WorkoutSessionPage>();
+            builder.Services.AddSingleton<TabataView>();
+            builder.Services.AddSingleton<PreviousWorkoutView>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

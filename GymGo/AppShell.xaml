@@ -4,12 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:GymGo"
-    Shell.FlyoutBehavior="Disabled"
-    Title="GymGo">
+    xmlns:previousWorkout="clr-namespace:GymGo.Pages.PreviousWorkout"
+    xmlns:tabata="clr-namespace:GymGo.Pages.Tabata"
+    xmlns:workoutsession="clr-namespace:GymGo.Pages.WorkoutSession"
+    Title="GymGo"
+    Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <FlyoutItem Title="WorkoutSession">
+        <Tab Title="Workout Session">
+            <ShellContent ContentTemplate="{DataTemplate workoutsession:WorkoutSessionPage}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Tabata">
+        <Tab Title="Tabata">
+            <ShellContent ContentTemplate="{DataTemplate tabata:TabataView}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Previous Workouts">
+        <Tab Title="Previous Workouts">
+            <ShellContent ContentTemplate="{DataTemplate previousWorkout:PreviousWorkoutView}" />
+        </Tab>
+    </FlyoutItem>
 </Shell>
