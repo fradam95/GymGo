@@ -2,11 +2,14 @@
 {
     public partial class App : Application
     {
-        public App()
+        public static TrainingMainTypeRepository TrainingMainTypeRepository {  get; set; }
+        public App(TrainingMainTypeRepository trainingMainTypeRepository)
         {
             InitializeComponent();
 
             MainPage = new AppShell();
+
+            TrainingMainTypeRepository = trainingMainTypeRepository;
         }
     }
 }

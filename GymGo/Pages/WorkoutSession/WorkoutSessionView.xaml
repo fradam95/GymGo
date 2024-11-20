@@ -4,10 +4,44 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="WorkoutSessionPage">
-    <VerticalStackLayout>
+
+    <Grid
+        Padding="5"
+        ColumnSpacing="5"
+        RowDefinitions="Auto,Auto,Auto,Auto,*"
+        RowSpacing="5">
+
+        <Entry x:Name="newTrainingType" Placeholder="Enter name" />
+
+        <Button
+            Grid.Row="1"
+            Clicked="OnNewButtonClicked"
+            Text="Add Person" />
+
         <Label
-            HorizontalOptions="Center"
-            Text="Workout Session Page"
-            VerticalOptions="Center" />
-    </VerticalStackLayout>
+            x:Name="statusMessage"
+            Grid.Row="2"
+            TextColor="{StaticResource Primary}" />
+
+        <Button
+            Grid.Row="3"
+            Clicked="OnGetButtonClicked"
+            Text="Get All People" />
+
+        <CollectionView x:Name="peopleList" Grid.Row="4">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,2*">
+                        <Label Text="{Binding Id}" TextColor="{StaticResource Primary}" />
+                        <Label
+                            Grid.Column="1"
+                            Text="{Binding Name}"
+                            TextColor="{StaticResource Primary}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+
 </ContentPage>
