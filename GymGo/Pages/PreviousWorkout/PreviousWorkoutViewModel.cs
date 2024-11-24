@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
 using GymGo.Services;
 using static GymGo.Models.Excercise;
 
 namespace GymGo.Pages.PreviousWorkout;
 
-public class PreviousWorkoutViewModel : INotifyPropertyChanged
+public partial class PreviousWorkoutViewModel : ObservableObject
 {
     private readonly DatabaseService _databaseService;
 
